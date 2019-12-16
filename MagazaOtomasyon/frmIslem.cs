@@ -22,7 +22,7 @@ namespace MagazaOtomasyon
         {
             InitializeComponent();
         }
-        int urun_counter = 0, personel_counter = 0, silinen_urun_counter = 0;
+        int urun_counter = 0, personel_counter = 0;
         public int personelID = 0;
         public string urunKod = "0";
         private void button1_Click(object sender, EventArgs e)
@@ -123,90 +123,6 @@ namespace MagazaOtomasyon
                 control.Text = string.Empty;
         }
 
-        private void txtUrunFiyat_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((int)e.KeyChar < 48 && (int)e.KeyChar > 57)
-            {
-                if ((int)e.KeyChar == 8) return;
-                e.Handled = true;
-                MessageBox.Show("Ürün Fiyatı yalnızca rakamlardan oluşmaktadır");
-            }
-            else e.Handled = false;
-        }
-
-
-
-        private void txtUrunNo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((int)e.KeyChar < 48 && (int)e.KeyChar > 57)
-            {
-                if ((int)e.KeyChar == 8) return;
-                e.Handled = true;
-                MessageBox.Show("Ürün Barkodu yalnızca rakamlardan oluşmaktadır");
-            }
-            else e.Handled = false;
-        }
-
-        private void txtUrunStok_KeyPress(object sender, KeyPressEventArgs e)
-
-        {
-            if ((int)e.KeyChar < 48 || (int)e.KeyChar > 57)
-            {
-                if ((int)e.KeyChar == 8) return;
-                e.Handled = true;
-                MessageBox.Show("Ürün Stoğu yalnızca rakamlardan oluşmaktadır");
-            }
-            else e.Handled = false;
-        }
-
-        private void txtUrunAd_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (((int)e.KeyChar > 32 && (int)e.KeyChar < 65) || ((int)e.KeyChar > 90 && (int)e.KeyChar < 97) || (int)e.KeyChar > 122 && (int)e.KeyChar < 127)
-            {
-                e.Handled = true;
-                MessageBox.Show("Ürün adı yalnızca harflerden oluşmaktadır");
-            }
-        }
-
-        private void txtUrunRenk_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (((int)e.KeyChar > 32 && (int)e.KeyChar < 65) || ((int)e.KeyChar > 90 && (int)e.KeyChar < 97) || (int)e.KeyChar > 122 && (int)e.KeyChar < 127)
-            {
-                e.Handled = true;
-                MessageBox.Show("Ürün Rengi yalnızca harflerden oluşmaktadır");
-            }
-        }
-
-        private void txtPrsnlAd_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (((int)e.KeyChar > 32 && (int)e.KeyChar < 65) || ((int)e.KeyChar > 90 && (int)e.KeyChar < 97) || (int)e.KeyChar > 122 && (int)e.KeyChar < 127)
-            {
-                e.Handled = true;
-                MessageBox.Show("Personel adı yalnızca harflerden oluşmaktadır");
-            }
-        }
-
-        private void txtPrsnlSoyad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (((int)e.KeyChar > 32 && (int)e.KeyChar < 65) || ((int)e.KeyChar > 90 && (int)e.KeyChar < 97) || (int)e.KeyChar > 122 && (int)e.KeyChar < 127)
-            {
-                e.Handled = true;
-                MessageBox.Show("Personel Soyadı yalnızca harflerden oluşmaktadır");
-            }
-        }
-
-        private void txtPrsnlTc_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((int)e.KeyChar < 48 && (int)e.KeyChar > 57)
-            {
-                if ((int)e.KeyChar == 8) return;
-                e.Handled = true;
-
-            }
-            else e.Handled = false;
-
-        }
-
         private void frmIslem_Load(object sender, EventArgs e)
         {
             UrunKategoriBL urunKategoriBl = new UrunKategoriBL();
@@ -245,6 +161,13 @@ namespace MagazaOtomasyon
         {
             frmUrunListele frm = new frmUrunListele();
             frm.Show();
+        }
+
+        private void btnPersonelListele_Click(object sender, EventArgs e)
+        {
+            frmPersonelListele frm = new frmPersonelListele();
+            frm.Show();
+
         }
 
         private void frmIslem_FormClosed(object sender, FormClosedEventArgs e)

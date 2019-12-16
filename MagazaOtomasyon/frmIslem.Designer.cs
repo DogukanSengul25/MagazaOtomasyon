@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtUrunFiyat = new CustomControls.MyTextBox();
+            this.txtUrunStok = new CustomControls.MyTextBox();
+            this.txtUrunRenk = new CustomControls.MyTextBox();
+            this.txtUrunNo = new CustomControls.MyTextBox();
+            this.txtUrunAd = new CustomControls.MyTextBox();
             this.txtPrsnlKullaniciAdi = new System.Windows.Forms.TextBox();
             this.txtPrsnlSifre = new System.Windows.Forms.TextBox();
             this.cmbPrsnlYetki = new System.Windows.Forms.ComboBox();
@@ -52,21 +57,17 @@
             this.btnUrunVazgec = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtPrsnlCinsiyet = new CustomControls.MyTextBox();
+            this.txtPrsnlTc = new CustomControls.MyTextBox();
+            this.txtPrsnlSoyad = new CustomControls.MyTextBox();
+            this.txtPrsnlAd = new CustomControls.MyTextBox();
             this.btnPrsnlEkle = new System.Windows.Forms.Button();
             this.btnPrsnlBul = new System.Windows.Forms.Button();
             this.btnPrsnlSil = new System.Windows.Forms.Button();
             this.btnPrsnlVazgec = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.btnUrunListele = new System.Windows.Forms.Button();
-            this.txtUrunAd = new CustomControls.MyTextBox();
-            this.txtUrunNo = new CustomControls.MyTextBox();
-            this.txtUrunRenk = new CustomControls.MyTextBox();
-            this.txtUrunStok = new CustomControls.MyTextBox();
-            this.txtUrunFiyat = new CustomControls.MyTextBox();
-            this.txtPrsnlAd = new CustomControls.MyTextBox();
-            this.txtPrsnlSoyad = new CustomControls.MyTextBox();
-            this.txtPrsnlTc = new CustomControls.MyTextBox();
-            this.txtPrsnlCinsiyet = new CustomControls.MyTextBox();
+            this.btnPersonelListele = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -83,6 +84,46 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(137, 142);
             this.panel1.TabIndex = 0;
+            // 
+            // txtUrunFiyat
+            // 
+            this.txtUrunFiyat.CalismaModu = CustomControls.WorkMode.Rakam;
+            this.txtUrunFiyat.Location = new System.Drawing.Point(4, 111);
+            this.txtUrunFiyat.Name = "txtUrunFiyat";
+            this.txtUrunFiyat.Size = new System.Drawing.Size(100, 20);
+            this.txtUrunFiyat.TabIndex = 14;
+            // 
+            // txtUrunStok
+            // 
+            this.txtUrunStok.CalismaModu = CustomControls.WorkMode.Rakam;
+            this.txtUrunStok.Location = new System.Drawing.Point(4, 81);
+            this.txtUrunStok.Name = "txtUrunStok";
+            this.txtUrunStok.Size = new System.Drawing.Size(100, 20);
+            this.txtUrunStok.TabIndex = 13;
+            // 
+            // txtUrunRenk
+            // 
+            this.txtUrunRenk.CalismaModu = CustomControls.WorkMode.Harf;
+            this.txtUrunRenk.Location = new System.Drawing.Point(4, 55);
+            this.txtUrunRenk.Name = "txtUrunRenk";
+            this.txtUrunRenk.Size = new System.Drawing.Size(100, 20);
+            this.txtUrunRenk.TabIndex = 11;
+            // 
+            // txtUrunNo
+            // 
+            this.txtUrunNo.CalismaModu = CustomControls.WorkMode.Rakam;
+            this.txtUrunNo.Location = new System.Drawing.Point(4, 34);
+            this.txtUrunNo.Name = "txtUrunNo";
+            this.txtUrunNo.Size = new System.Drawing.Size(100, 20);
+            this.txtUrunNo.TabIndex = 12;
+            // 
+            // txtUrunAd
+            // 
+            this.txtUrunAd.CalismaModu = CustomControls.WorkMode.Harf;
+            this.txtUrunAd.Location = new System.Drawing.Point(4, 8);
+            this.txtUrunAd.Name = "txtUrunAd";
+            this.txtUrunAd.Size = new System.Drawing.Size(100, 20);
+            this.txtUrunAd.TabIndex = 11;
             // 
             // txtPrsnlKullaniciAdi
             // 
@@ -312,6 +353,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Personel Ekle";
             // 
+            // txtPrsnlCinsiyet
+            // 
+            this.txtPrsnlCinsiyet.CalismaModu = CustomControls.WorkMode.Harf;
+            this.txtPrsnlCinsiyet.Location = new System.Drawing.Point(167, 115);
+            this.txtPrsnlCinsiyet.Name = "txtPrsnlCinsiyet";
+            this.txtPrsnlCinsiyet.Size = new System.Drawing.Size(100, 20);
+            this.txtPrsnlCinsiyet.TabIndex = 21;
+            // 
+            // txtPrsnlTc
+            // 
+            this.txtPrsnlTc.CalismaModu = CustomControls.WorkMode.Rakam;
+            this.txtPrsnlTc.Location = new System.Drawing.Point(167, 88);
+            this.txtPrsnlTc.Name = "txtPrsnlTc";
+            this.txtPrsnlTc.Size = new System.Drawing.Size(100, 20);
+            this.txtPrsnlTc.TabIndex = 20;
+            // 
+            // txtPrsnlSoyad
+            // 
+            this.txtPrsnlSoyad.CalismaModu = CustomControls.WorkMode.Harf;
+            this.txtPrsnlSoyad.Location = new System.Drawing.Point(167, 62);
+            this.txtPrsnlSoyad.Name = "txtPrsnlSoyad";
+            this.txtPrsnlSoyad.Size = new System.Drawing.Size(100, 20);
+            this.txtPrsnlSoyad.TabIndex = 19;
+            // 
+            // txtPrsnlAd
+            // 
+            this.txtPrsnlAd.CalismaModu = CustomControls.WorkMode.Harf;
+            this.txtPrsnlAd.Location = new System.Drawing.Point(167, 33);
+            this.txtPrsnlAd.Name = "txtPrsnlAd";
+            this.txtPrsnlAd.Size = new System.Drawing.Size(100, 20);
+            this.txtPrsnlAd.TabIndex = 18;
+            // 
             // btnPrsnlEkle
             // 
             this.btnPrsnlEkle.Location = new System.Drawing.Point(514, 279);
@@ -365,91 +438,30 @@
             // 
             // btnUrunListele
             // 
-            this.btnUrunListele.Location = new System.Drawing.Point(399, 318);
+            this.btnUrunListele.Location = new System.Drawing.Point(154, 317);
             this.btnUrunListele.Name = "btnUrunListele";
             this.btnUrunListele.Size = new System.Drawing.Size(101, 35);
             this.btnUrunListele.TabIndex = 29;
-            this.btnUrunListele.Text = "button1";
+            this.btnUrunListele.Text = "Ürün Listele";
             this.btnUrunListele.UseVisualStyleBackColor = true;
             this.btnUrunListele.Click += new System.EventHandler(this.btnUrunListele_Click);
             // 
-            // txtUrunAd
+            // btnPersonelListele
             // 
-            this.txtUrunAd.CalismaModu = CustomControls.WorkMode.Harf;
-            this.txtUrunAd.Location = new System.Drawing.Point(4, 8);
-            this.txtUrunAd.Name = "txtUrunAd";
-            this.txtUrunAd.Size = new System.Drawing.Size(100, 20);
-            this.txtUrunAd.TabIndex = 11;
-            // 
-            // txtUrunNo
-            // 
-            this.txtUrunNo.CalismaModu = CustomControls.WorkMode.Rakam;
-            this.txtUrunNo.Location = new System.Drawing.Point(4, 34);
-            this.txtUrunNo.Name = "txtUrunNo";
-            this.txtUrunNo.Size = new System.Drawing.Size(100, 20);
-            this.txtUrunNo.TabIndex = 12;
-            // 
-            // txtUrunRenk
-            // 
-            this.txtUrunRenk.CalismaModu = CustomControls.WorkMode.Harf;
-            this.txtUrunRenk.Location = new System.Drawing.Point(4, 55);
-            this.txtUrunRenk.Name = "txtUrunRenk";
-            this.txtUrunRenk.Size = new System.Drawing.Size(100, 20);
-            this.txtUrunRenk.TabIndex = 11;
-            // 
-            // txtUrunStok
-            // 
-            this.txtUrunStok.CalismaModu = CustomControls.WorkMode.Rakam;
-            this.txtUrunStok.Location = new System.Drawing.Point(4, 81);
-            this.txtUrunStok.Name = "txtUrunStok";
-            this.txtUrunStok.Size = new System.Drawing.Size(100, 20);
-            this.txtUrunStok.TabIndex = 13;
-            // 
-            // txtUrunFiyat
-            // 
-            this.txtUrunFiyat.CalismaModu = CustomControls.WorkMode.Rakam;
-            this.txtUrunFiyat.Location = new System.Drawing.Point(4, 111);
-            this.txtUrunFiyat.Name = "txtUrunFiyat";
-            this.txtUrunFiyat.Size = new System.Drawing.Size(100, 20);
-            this.txtUrunFiyat.TabIndex = 14;
-            // 
-            // txtPrsnlAd
-            // 
-            this.txtPrsnlAd.CalismaModu = CustomControls.WorkMode.Harf;
-            this.txtPrsnlAd.Location = new System.Drawing.Point(167, 33);
-            this.txtPrsnlAd.Name = "txtPrsnlAd";
-            this.txtPrsnlAd.Size = new System.Drawing.Size(100, 20);
-            this.txtPrsnlAd.TabIndex = 18;
-            // 
-            // txtPrsnlSoyad
-            // 
-            this.txtPrsnlSoyad.CalismaModu = CustomControls.WorkMode.Harf;
-            this.txtPrsnlSoyad.Location = new System.Drawing.Point(167, 62);
-            this.txtPrsnlSoyad.Name = "txtPrsnlSoyad";
-            this.txtPrsnlSoyad.Size = new System.Drawing.Size(100, 20);
-            this.txtPrsnlSoyad.TabIndex = 19;
-            // 
-            // txtPrsnlTc
-            // 
-            this.txtPrsnlTc.CalismaModu = CustomControls.WorkMode.Rakam;
-            this.txtPrsnlTc.Location = new System.Drawing.Point(167, 88);
-            this.txtPrsnlTc.Name = "txtPrsnlTc";
-            this.txtPrsnlTc.Size = new System.Drawing.Size(100, 20);
-            this.txtPrsnlTc.TabIndex = 20;
-            // 
-            // txtPrsnlCinsiyet
-            // 
-            this.txtPrsnlCinsiyet.CalismaModu = CustomControls.WorkMode.Harf;
-            this.txtPrsnlCinsiyet.Location = new System.Drawing.Point(167, 115);
-            this.txtPrsnlCinsiyet.Name = "txtPrsnlCinsiyet";
-            this.txtPrsnlCinsiyet.Size = new System.Drawing.Size(100, 20);
-            this.txtPrsnlCinsiyet.TabIndex = 21;
+            this.btnPersonelListele.Location = new System.Drawing.Point(670, 317);
+            this.btnPersonelListele.Name = "btnPersonelListele";
+            this.btnPersonelListele.Size = new System.Drawing.Size(100, 35);
+            this.btnPersonelListele.TabIndex = 30;
+            this.btnPersonelListele.Text = "Personel Listele";
+            this.btnPersonelListele.UseVisualStyleBackColor = true;
+            this.btnPersonelListele.Click += new System.EventHandler(this.btnPersonelListele_Click);
             // 
             // frmIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 450);
+            this.Controls.Add(this.btnPersonelListele);
             this.Controls.Add(this.btnUrunListele);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnPrsnlVazgec);
@@ -508,14 +520,15 @@
         public System.Windows.Forms.ComboBox cmbUrunKategori;
         public System.Windows.Forms.Button btnPrsnlEkle;
         public System.Windows.Forms.Button btnUrunListele;
-        private CustomControls.MyTextBox txtUrunAd;
-        private CustomControls.MyTextBox txtUrunFiyat;
-        private CustomControls.MyTextBox txtUrunStok;
-        private CustomControls.MyTextBox txtUrunRenk;
-        private CustomControls.MyTextBox txtUrunNo;
-        private CustomControls.MyTextBox txtPrsnlCinsiyet;
-        private CustomControls.MyTextBox txtPrsnlTc;
-        private CustomControls.MyTextBox txtPrsnlSoyad;
-        private CustomControls.MyTextBox txtPrsnlAd;
+        public System.Windows.Forms.Button btnPersonelListele;
+        public CustomControls.MyTextBox txtUrunAd;
+        public CustomControls.MyTextBox txtUrunFiyat;
+        public CustomControls.MyTextBox txtUrunStok;
+        public CustomControls.MyTextBox txtUrunRenk;
+        public CustomControls.MyTextBox txtUrunNo;
+        public CustomControls.MyTextBox txtPrsnlCinsiyet;
+        public CustomControls.MyTextBox txtPrsnlTc;
+        public CustomControls.MyTextBox txtPrsnlSoyad;
+        public CustomControls.MyTextBox txtPrsnlAd;
     }
 }

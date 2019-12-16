@@ -54,7 +54,7 @@ namespace MagazaOtomasyon.BL
             return urun;
 
         }
-        public DataTable OgrenciTablosu() => hlp.MyDataTable("Select * from Urunler");
+        public DataTable UrunlerTablosu => hlp.GetDataTable("Select * from Urunler");
         public void Dispose()
         {
            hlp.Dispose();

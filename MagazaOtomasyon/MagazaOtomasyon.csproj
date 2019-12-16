@@ -70,6 +70,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPersonelListele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonelListele.Designer.cs">
+      <DependentUpon>frmPersonelListele.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrsnlBul.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonelListele.resx">
+      <DependentUpon>frmPersonelListele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrsnlBul.resx">
       <DependentUpon>frmPrsnlBul.cs</DependentUpon>

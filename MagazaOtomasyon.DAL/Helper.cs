@@ -42,7 +42,7 @@ namespace MagazaOtomasyon.DAL
         }
 
 
-        public DataTable MyDataTable(string cmdtext)
+        public DataTable GetDataTable(string cmdtext)
         {
             SqlDataAdapter da = new SqlDataAdapter(cmdtext, cn);
             DataTable dt = new DataTable();

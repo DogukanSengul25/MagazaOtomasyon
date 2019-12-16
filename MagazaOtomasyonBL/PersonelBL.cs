@@ -2,6 +2,7 @@
 using MagazaOtomasyon.MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -64,7 +65,7 @@ namespace MagazaOtomasyonBL
             };
             return this.hlp.ExecuteNonQuery("Delete from Personel where ID=@ID", p) > 0;
         }
-
+        public DataTable PersonelTablosu => hlp.GetDataTable("Select * from Urunler");
         public void Dispose()
         {
             this.hlp.Dispose();

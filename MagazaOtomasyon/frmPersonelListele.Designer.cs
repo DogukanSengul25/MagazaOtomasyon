@@ -1,6 +1,6 @@
 ﻿namespace MagazaOtomasyon
 {
-    partial class frmUrunListele
+    partial class frmPersonelListele
     {
         /// <summary>
         /// Required designer variable.
@@ -31,11 +31,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.Ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Renk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kategori = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Soyad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cinsiyet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tc_Kimlik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kullanici_Adi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sifre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yetki = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,19 +45,20 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ad,
-            this.Barkod,
-            this.Stok,
-            this.Fiyat,
-            this.Renk,
-            this.Kategori});
-            this.dataGridView1.Location = new System.Drawing.Point(80, 12);
+            this.Soyad,
+            this.Cinsiyet,
+            this.Tc_Kimlik,
+            this.Kullanici_Adi,
+            this.Sifre,
+            this.Yetki});
+            this.dataGridView1.Location = new System.Drawing.Point(25, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(639, 287);
+            this.dataGridView1.Size = new System.Drawing.Size(748, 264);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnKaydet
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(347, 324);
+            this.btnKaydet.Location = new System.Drawing.Point(349, 307);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(75, 23);
             this.btnKaydet.TabIndex = 1;
@@ -66,44 +68,49 @@
             // 
             // Ad
             // 
-            this.Ad.HeaderText = "Ad";
+            this.Ad.HeaderText = "Adı";
             this.Ad.Name = "Ad";
             // 
-            // Barkod
+            // Soyad
             // 
-            this.Barkod.HeaderText = "Barkod";
-            this.Barkod.Name = "Barkod";
+            this.Soyad.HeaderText = "Soyadı";
+            this.Soyad.Name = "Soyad";
             // 
-            // Stok
+            // Cinsiyet
             // 
-            this.Stok.HeaderText = "Stok";
-            this.Stok.Name = "Stok";
+            this.Cinsiyet.HeaderText = "Cinsiyeti";
+            this.Cinsiyet.Name = "Cinsiyet";
             // 
-            // Fiyat
+            // Tc_Kimlik
             // 
-            this.Fiyat.HeaderText = "Fiyat";
-            this.Fiyat.Name = "Fiyat";
+            this.Tc_Kimlik.HeaderText = "Tc Kimlik";
+            this.Tc_Kimlik.Name = "Tc_Kimlik";
             // 
-            // Renk
+            // Kullanici_Adi
             // 
-            this.Renk.HeaderText = "Renk";
-            this.Renk.Name = "Renk";
+            this.Kullanici_Adi.HeaderText = "Kullanıcı Adı";
+            this.Kullanici_Adi.Name = "Kullanici_Adi";
             // 
-            // Kategori
+            // Sifre
             // 
-            this.Kategori.HeaderText = "Kategori";
-            this.Kategori.Name = "Kategori";
+            this.Sifre.HeaderText = "Şifre";
+            this.Sifre.Name = "Sifre";
             // 
-            // frmUrunListele
+            // Yetki
+            // 
+            this.Yetki.HeaderText = "Yetki";
+            this.Yetki.Name = "Yetki";
+            // 
+            // frmPersonelListele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmUrunListele";
-            this.Text = "frmUrunListele";
-            this.Load += new System.EventHandler(this.frmUrunListele_Load);
+            this.Name = "frmPersonelListele";
+            this.Text = "frmPersonelListele";
+            this.Load += new System.EventHandler(this.frmPersonelListele_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -111,13 +118,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barkod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fiyat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Renk;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Kategori;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Soyad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cinsiyet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tc_Kimlik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kullanici_Adi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sifre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Yetki;
     }
 }
