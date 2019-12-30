@@ -27,6 +27,10 @@ namespace MagazaOtomasyon
             dt = prs.PersonelTablosu();
             dataGridView1.DataSource = dt;
             prs.Dispose();
+            PersonelYetkiBL prsy = new PersonelYetkiBL();
+            cmbYetki.DisplayMember = "YetkiAd";
+            cmbYetki.ValueMember = "ID";
+            cmbYetki.DataSource = prsy.YetkiListesi();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -39,11 +43,11 @@ namespace MagazaOtomasyon
                 {
                     p.PersonelAdi = item[1].ToString();
                     p.PersonelSoyadi = item[2].ToString();
-                    p.PersonelCinsiyet = item[3].ToString(); ;
-                    p.PersonelTC = item[4].ToString();
+                    p.PersonelCinsiyet = item[4].ToString(); ;
+                    p.PersonelTC = item[3].ToString();
                     p.KullaniciAdi=item[5].ToString();
                     p.Sifre = item[6].ToString();
-                    p.YetkiID = Convert.ToInt32(item[7]);
+                    p.YetkiID = (Convert.ToInt32(item[7]));
                 }
                 switch (item.RowState)
                 {
@@ -51,7 +55,7 @@ namespace MagazaOtomasyon
                         prsnl.Personel_Ekle(p);
                         break;
                     case DataRowState.Deleted:
-                        prsnl.Personel_Sil(Convert.ToInt32(item[0, DataRowVersion.Original]));
+                        prsnl.Personel_Sil(Convert.ToInt32(item["PersonelID", DataRowVersion.Original]));
                         break;
                     case DataRowState.Modified:
                         p.PersonelID = Convert.ToInt32(item[0]);
@@ -63,6 +67,20 @@ namespace MagazaOtomasyon
 
 
 
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception.Message=="DataGridViewComboBoxCell value is not valid.")
+            {
+                object value = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                if (!((DataGridViewComboBoxColumn)dataGridView1.Columns[e.ColumnIndex]).Items.Contains(value))
+                {
+                  ((DataGridViewComboBoxColumn)dataGridView1.Columns[e.ColumnIndex]).Items.Add(value);
+                    e.ThrowException = false;
+                }
             }
         }
     }

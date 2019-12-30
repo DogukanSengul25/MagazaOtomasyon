@@ -44,6 +44,7 @@
     <Compile Include="Kullanici.cs" />
     <Compile Include="Personel.cs" />
     <Compile Include="PersonelYetki.cs" />
+    <Compile Include="Satis.cs" />
     <Compile Include="Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrunKategori.cs" />

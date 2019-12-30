@@ -41,6 +41,7 @@
             this.btnUrunBul.TabIndex = 0;
             this.btnUrunBul.Text = "Ürün Bul";
             this.btnUrunBul.UseVisualStyleBackColor = true;
+            this.btnUrunBul.Click += new System.EventHandler(this.btnUrunBul_Click);
             // 
             // txtUrunBul
             // 
@@ -58,7 +59,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Barkod No :";
             // 
-            // frmUrunBul
+            // frmBul
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -66,7 +67,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUrunBul);
             this.Controls.Add(this.btnUrunBul);
-            this.Name = "frmUrunBul";
+            this.Name = "frmBul";
             this.Text = "frmUrunBul";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,5 +16,10 @@ namespace MagazaOtomasyon.MODEL
         public string Sifre { get; set; }
         public string PersonelTC { get; set; }
         public int YetkiID { get; set; }
+
+        public override string ToString()
+        {
+            return $"{PersonelAdi}, {PersonelSoyadi}";
+        }
     }
 }

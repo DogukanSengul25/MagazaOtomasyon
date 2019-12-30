@@ -28,96 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUrunListele));
+            this.dataGridUrunler = new System.Windows.Forms.DataGridView();
             this.btnKaydet = new System.Windows.Forms.Button();
-            this.Ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Renk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kategori = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.clmAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmBarkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmStok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRenk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmKategori = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUrunler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridUrunler
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ad,
-            this.Barkod,
-            this.Stok,
-            this.Fiyat,
-            this.Renk,
-            this.Kategori});
-            this.dataGridView1.Location = new System.Drawing.Point(80, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(639, 287);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUrunler.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmAd,
+            this.clmBarkod,
+            this.clmStok,
+            this.clmFiyat,
+            this.clmRenk,
+            this.clmKategori});
+            this.dataGridUrunler.Location = new System.Drawing.Point(74, 58);
+            this.dataGridUrunler.Name = "dataGridUrunler";
+            this.dataGridUrunler.Size = new System.Drawing.Size(639, 287);
+            this.dataGridUrunler.TabIndex = 0;
+            this.dataGridUrunler.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridUrunler_DataError);
             // 
             // btnKaydet
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(347, 324);
+            this.btnKaydet.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKaydet.Location = new System.Drawing.Point(334, 351);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(75, 23);
+            this.btnKaydet.Size = new System.Drawing.Size(130, 54);
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.UseVisualStyleBackColor = false;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
-            // Ad
+            // clmAd
             // 
-            this.Ad.HeaderText = "Ad";
-            this.Ad.Name = "Ad";
+            this.clmAd.DataPropertyName = "Urun_Ad";
+            this.clmAd.HeaderText = "Ad";
+            this.clmAd.Name = "clmAd";
             // 
-            // Barkod
+            // clmBarkod
             // 
-            this.Barkod.HeaderText = "Barkod";
-            this.Barkod.Name = "Barkod";
+            this.clmBarkod.DataPropertyName = "Urun_Kod";
+            this.clmBarkod.HeaderText = "Barkod";
+            this.clmBarkod.Name = "clmBarkod";
             // 
-            // Stok
+            // clmStok
             // 
-            this.Stok.HeaderText = "Stok";
-            this.Stok.Name = "Stok";
+            this.clmStok.DataPropertyName = "Urun_Stok";
+            this.clmStok.HeaderText = "Stok";
+            this.clmStok.Name = "clmStok";
             // 
-            // Fiyat
+            // clmFiyat
             // 
-            this.Fiyat.HeaderText = "Fiyat";
-            this.Fiyat.Name = "Fiyat";
+            this.clmFiyat.DataPropertyName = "Urun_Fiyat";
+            this.clmFiyat.HeaderText = "Fiyat";
+            this.clmFiyat.Name = "clmFiyat";
             // 
-            // Renk
+            // clmRenk
             // 
-            this.Renk.HeaderText = "Renk";
-            this.Renk.Name = "Renk";
+            this.clmRenk.DataPropertyName = "Urun_Renk";
+            this.clmRenk.HeaderText = "Renk";
+            this.clmRenk.Name = "clmRenk";
             // 
-            // Kategori
+            // clmKategori
             // 
-            this.Kategori.HeaderText = "Kategori";
-            this.Kategori.Name = "Kategori";
+            this.clmKategori.DataPropertyName = "Kat_Ad";
+            this.clmKategori.HeaderText = "Kategori";
+            this.clmKategori.Name = "clmKategori";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(330, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "ÜRÜN TABLOSU";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 351);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(201, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // frmUrunListele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnKaydet);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridUrunler);
             this.Name = "frmUrunListele";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUrunListele";
             this.Load += new System.EventHandler(this.frmUrunListele_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUrunler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridUrunler;
         private System.Windows.Forms.Button btnKaydet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Barkod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fiyat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Renk;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Kategori;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmBarkod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmStok;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFiyat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRenk;
+        private System.Windows.Forms.DataGridViewComboBoxColumn clmKategori;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

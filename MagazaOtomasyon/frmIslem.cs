@@ -31,22 +31,25 @@ namespace MagazaOtomasyon
             PersonelBL personelBl = new PersonelBL();
             try
             {
-                if (personelBl.Personel_Ekle(new Personel()))
+                p.PersonelAdi = txtPrsnlAd.Text.Trim();
+                p.PersonelSoyadi = this.txtPrsnlSoyad.Text.Trim();
+                p.PersonelTC = this.txtPrsnlTc.Text.Trim();
+                p.PersonelCinsiyet = this.txtPrsnlCinsiyet.Text.Trim();
+                p.KullaniciAdi = this.txtPrsnlKullaniciAdi.Text.Trim();
+                p.Sifre = this.txtPrsnlSifre.Text.Trim();
+                p.YetkiID = (int)this.cmbPrsnlYetki.SelectedValue;
+                p.PersonelID = personelID;
+                ++this.personel_counter;
+                if (personelID == 0)
                 {
-                    p.PersonelAdi = txtPrsnlAd.Text.Trim();
-                    p.PersonelSoyadi = this.txtPrsnlSoyad.Text.Trim();
-                    p.PersonelTC = this.txtPrsnlTc.Text.Trim();
-                    p.PersonelCinsiyet = this.txtPrsnlCinsiyet.Text.Trim();
-                    p.KullaniciAdi = this.txtPrsnlKullaniciAdi.Text.Trim();
-                    p.Sifre = this.txtPrsnlSifre.Text.Trim();
-                    p.YetkiID = (int)this.cmbPrsnlYetki.SelectedValue;
-                    ++this.personel_counter;
+                    personelBl.Personel_Ekle(p);
                     MessageBox.Show(this.personel_counter.ToString() + " Yeni Personel Eklendi");
                 }
 
                 else
                 {
-                    MessageBox.Show("Bir Hata Oluştu");
+                    personelBl.Personel_Guncelle(p);
+                    MessageBox.Show("Personel Güncellendi");
                 }
             }
             catch (SqlException ex)
@@ -54,7 +57,7 @@ namespace MagazaOtomasyon
                 switch (ex.Number)
                 {
                     default:
-                        MessageBox.Show("Veritabanı hatası!" + ex.Number);
+                        MessageBox.Show("Veritabanı hatası!" + ex.Number);                       
                         break;
                 }
 
@@ -72,18 +75,20 @@ namespace MagazaOtomasyon
         }
 
         private void btnUrunEkle_Click(object sender, EventArgs e)
-        {
-            Helper hlp = new Helper();
+        {           
+            Urun urun = new Urun();
             UrunBL urunbl = new UrunBL();
+
             try
             {
-
-                Urun urun = new Urun();
-                urun.Urun_kodu = txtUrunNo.Text.Trim();
+                urun.kategori_id =(int) cmbUrunKategori.SelectedValue;
                 urun.Urun_ad = txtUrunAd.Text.Trim();
-                urun.Fiyat = int.Parse(txtUrunFiyat.Text);
-                urun.Stok_mik = int.Parse(txtUrunStok.Text);
+                urun.Urun_kodu = txtUrunNo.Text.Trim();
                 urun.urun_renk = txtUrunRenk.Text.Trim();
+                urun.Stok_mik = int.Parse(txtUrunStok.Text);
+                urun.Fiyat = int.Parse(txtUrunFiyat.Text);
+                
+               
 
                 if (urunbl.Urun_Ekle(urun))
                 {
@@ -98,7 +103,6 @@ namespace MagazaOtomasyon
 
                 }
 
-
             }
             catch (SqlException ex)
             {
@@ -106,6 +110,7 @@ namespace MagazaOtomasyon
                 {
                     default:
                         MessageBox.Show("Veritabanı hatası!" + ex.Number);
+                        
                         break;
                 }
 
@@ -119,7 +124,7 @@ namespace MagazaOtomasyon
 
         private void Temizle(string grpIsim, string pnlIsım)
         {
-            foreach (Control control in (ArrangedElementCollection)this.Controls[grpIsim].Controls[pnlIsım].Controls)
+            foreach (Control control in panel2.Controls)
                 control.Text = string.Empty;
         }
 
@@ -138,11 +143,20 @@ namespace MagazaOtomasyon
         private void btnPrsnlSil_Click(object sender, EventArgs e)
         {
             PersonelBL personelBl = new PersonelBL();
-            if (MessageBox.Show("Kullanıcı Silinecek. Devam Etmek İstiyor musunuz?", "Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes || !personelBl.Personel_Sil(new Personel()
+            //if (MessageBox.Show("Kullanıcı Silinecek. Devam Etmek İstiyor musunuz?", "Sil", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes || !personelBl.Personel_Sil(new Personel()
+            //{
+            //    PersonelID = this.personelID
+            //}))
+            DialogResult cvp = MessageBox.Show("Emin misiniz?", "Silme onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (cvp == DialogResult.No) return;
+            if (personelBl.Personel_Sil(personelID))
             {
-                PersonelID = this.personelID
-            }))
-                return;
+                MessageBox.Show("Silme işlemi başarılı.");
+            }
+            else
+            {
+                MessageBox.Show("Silme işlemi başarısız.");
+            }
             this.personelID = 0;
             this.Temizle("groupBox2", "pnlEkle2");
             this.cmbPrsnlYetki.SelectedIndex = 0;
@@ -174,6 +188,44 @@ namespace MagazaOtomasyon
         {
             Application.OpenForms["Form1"].Show();
         }
+
+        private void btnUrunSatis_Click_1(object sender, EventArgs e)
+        {
+            UrunSatis f = new UrunSatis();
+            f.Show();
+        }
+        
+        private void textclear(Control ctl)//TEXTBOX TEMİZLEME METODU
+        {
+            foreach (Control item in ctl.Controls)
+            {
+                if (item is TextBox)
+                {
+                    ((TextBox)item).Clear();
+                }
+                if (item.Controls.Count > 0)
+                {
+                    textclear(item);
+                }
+            }
+        }
+
+        private void btnPrsnlVazgec_Click(object sender, EventArgs e)
+        {
+            textclear(this);
+        }
+
+        private void btnUrunVazgec_Click(object sender, EventArgs e)
+        {
+            textclear(this);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            SatisBilgileri stl = new SatisBilgileri();
+            stl.Show();
+        }
+
         private void btnUrunSil_Click(object sender, EventArgs e)
         {
             UrunBL ubl = new UrunBL();

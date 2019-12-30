@@ -42,6 +42,10 @@ namespace MagazaOtomasyon
             this.frm.btnPrsnlEkle.Text = "Güncelle";
             this.frm.btnPrsnlSil.Visible = true;
             this.frm.btnPrsnlVazgec.Visible = true;
+            if (frm.btnPrsnlSil.Visible = true)
+            {
+                MessageBox.Show("Personel Bilgileri Getirildi");
+            }
         }
     }
 }

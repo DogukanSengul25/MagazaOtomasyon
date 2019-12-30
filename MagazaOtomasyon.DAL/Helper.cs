@@ -11,11 +11,10 @@ namespace MagazaOtomasyon.DAL
 {
     public class Helper : IDisposable
     {
-        SqlConnection cn = null;
+        SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
         SqlCommand cmd = null;
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p)
         {
-            cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
 
             cmd = new SqlCommand(cmdtext, cn);
             if (p != null)
@@ -44,6 +43,10 @@ namespace MagazaOtomasyon.DAL
 
         public DataTable GetDataTable(string cmdtext)
         {
+            if (p != null)
+            {
+                cmd.Parameters.AddRange(p);
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdtext, cn);
             DataTable dt = new DataTable();
             da.Fill(dt);

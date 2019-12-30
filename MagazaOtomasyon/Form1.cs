@@ -36,13 +36,31 @@ namespace MagazaOtomasyon
 
                     break;
                 case 2:
-                   new frmIslem().Show();
-                   this.Hide();
+                    new frmIslem().Show();
+                    this.Hide();
+                    break;
+                case 3:
+                    new frmIslem().Show();
+                    this.Hide();
                     break;
             }
         }
 
-        
-
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            {
+                //checkBox işaretli ise
+                if (checkBox1.Checked)
+                {
+                    //karakteri göster.
+                    txtSifre.PasswordChar = '\0';
+                }
+                //değilse karakterlerin yerine * koy.
+                else
+                {
+                    txtSifre.PasswordChar = '*';
+                }
+            }
+        }
     }
 }

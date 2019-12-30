@@ -13,13 +13,22 @@ namespace MagazaOtomasyon.BL
     public class UrunBL:IDisposable
     {
         Helper hlp = new Helper();
+        List<Urun> urunList = new List<Urun>();
+        List<UrunKategori> katList = new List<UrunKategori>();
 
 
         public bool Urun_Ekle(Urun urun)
         {
 
-            SqlParameter[] p = { new SqlParameter("@Urun_Renk", urun.urun_renk), new SqlParameter("@Urun_Kod", urun.Urun_kodu), new SqlParameter("@Urun_Ad", urun.Urun_ad), new SqlParameter("@Urun_Stok", urun.Stok_mik), new SqlParameter("@Urun_Fiyat", urun.Fiyat), new SqlParameter("@Urun_KategoriID", urun.kategori_id) };
-            return hlp.ExecuteNonQuery("Insert into Urun_Tablosu values(@Urun_Renk,@Urun_Kod,@Urun_Ad,@Urun_Stok,@Urun_Fiyat,@Urun_KategoriID)", p) > 0; /*executenonquery int türünde olduğu için dönülen değerin bool şartı taşıması için 0 dan büyüklüğne bakarız*/
+            SqlParameter[] p = {
+                new SqlParameter("@Urun_Ad", urun.Urun_ad),
+                new SqlParameter("@Urun_Kod", urun.Urun_kodu), 
+                new SqlParameter("@Urun_Renk", urun.urun_renk), 
+                new SqlParameter("@Urun_Stok", urun.Stok_mik), 
+                new SqlParameter("@Urun_Fiyat", urun.Fiyat),
+                new SqlParameter("@Urun_KategoriID", urun.kategori_id) 
+            };
+            return hlp.ExecuteNonQuery("Insert into Urun_Tablosu values(@Urun_Ad,@Urun_Kod,@Urun_Renk,@Urun_Stok,@Urun_Fiyat,@Urun_KategoriID)", p) > 0; /*executenonquery int türünde olduğu için dönülen değerin bool şartı taşıması için 0 dan büyüklüğne bakarız*/
         }
         public bool Urun_Guncelle(Urun urun)
         {
@@ -33,7 +42,36 @@ namespace MagazaOtomasyon.BL
             return hlp.ExecuteNonQuery("Delete from Urun_Tablosu where Urun_kodu=@Urun_Kod", p) > 0;
 
         }
-        public Urun Urun_Ara(string urunKodu)
+        public List<UrunKategori> cmbDataSourceKategori()
+        {
+            SqlDataReader dr = hlp.ExecuteReader("Select ID, Kat_Ad from Kategori", null);
+            while (dr.Read())
+            {
+                UrunKategori k = new UrunKategori();
+                k.KategoriAd = dr["Kat_Ad"].ToString();
+                k.KategoriID = Convert.ToInt32(dr["ID"]);
+                katList.Add(k);
+            }
+            dr.Close();
+            return katList;
+        }
+
+        public List<Urun> cmbDataSourceUrun()
+        {
+            SqlDataReader dr = hlp.ExecuteReader("Select UrunID, Urun_Ad, Urun_Fiyat, Urun_Stok from Urun_Tablosu", null);
+            while (dr.Read())
+            {
+                Urun u = new Urun();
+                u.UrunId = Convert.ToInt32(dr["UrunID"]);
+                u.Urun_ad = dr["Urun_Ad"].ToString();
+                u.Fiyat = Convert.ToInt32(dr["Urun_Fiyat"]);
+                u.Stok_mik = Convert.ToInt32(dr["Urun_Stok"]);
+                urunList.Add(u);
+            }
+            dr.Close();
+            return urunList;
+        }
+        public Urun Urun_Ara(Urun urunKodu)
         {
             Urun urun = null;
             SqlParameter[] p = { new SqlParameter("@Urun_Kod", urunKodu) };
@@ -54,7 +92,9 @@ namespace MagazaOtomasyon.BL
             return urun;
 
         }
-        public DataTable UrunlerTablosu => hlp.GetDataTable("Select * from Urunler");
+
+
+        public DataTable UrunlerTablosu() => hlp.GetDataTable("Select u.*,k.Kat_Ad from Urun_Tablosu u inner join Kategori k on k.ID=u.Urun_KategoriID");
         public void Dispose()
         {
            hlp.Dispose();
